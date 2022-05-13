@@ -4,47 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Calculator</title>
 </head>
 <body>
     <div class="calculate">
         <div class="display">
-            <div class="display-field"></div>
+            <input class="display-field" type="text" placeholder="0">
         </div>
         <div class="buttons">
             <div class="btn__state">
                 <div class="btn__state_container">
-                    <div class="btn__state_C btn C">C</div>
-                    <div class="btn__state_AC btn AC">AC</div>
-                    <div class="btn__state_backSpace btn backSpace"><-</div>
-                    <div class="btn__state_rvt btn rvt">Rvt</div>
+                    <div class="btn c">C</div>
+                    <div class="btn ac">AC</div>
+                    <div class="btn backSpace"><-</div>
+                    <div class="btn rvt">Rvt</div>
                 </div>
             </div>
             <div class="btn__function">
                 <div class="btn__function_container">
-                    <div class="btn__func_del btn del">/</div>
-                    <div class="btn__func_left-bracket btn left-bracket">(</div>
-                    <div class="btn__func_multiply btn multiply">*</div>
-                    <div class="btn__func_right-bracket btn right-bracket">)</div>
-                    <div class="btn__func_minus btn minus">-</div>
-                    <div class="btn__func_equal btn equal">=</div>
-                    <div class="btn__func_plus btn plus">+</div>
+                    <div class="item btn del">/</div>
+                    <div class="item btn left-bracket">(</div>
+                    <div class="item btn multiply">*</div>
+                    <div class="item btn right-bracket">)</div>
+                    <div class="item btn minus">-</div>
+                    <div class="item btn equal">=</div>
+                    <div class="item btn plus">+</div>
                 </div>
             </div>
             <div class="btn__keyboard">
                 <div class="btn__keyboard_container">
-                    <div class="btn__keyboard_seven btn seven">7</div>
-                    <div class="btn__keyboard_eigth btn eigth">8</div>
-                    <div class="btn__keyboard_nine btn nine">9</div>
-                    <div class="btn__keyboard_four btn four">4</div>
-                    <div class="btn__keyboard_five btn five">5</div>
-                    <div class="btn__keyboard_six btn six">6</div>
-                    <div class="btn__keyboard_one btn one">1</div>
-                    <div class="btn__keyboard_two btn two">2</div>
-                    <div class="btn__keyboard_three btn three">3</div>
-                    <div class="btn__keyboard_zero btn zero">0</div>
-                    <div class="btn__keyboard_dot btn dot">.</div>
-                    <div class="btn__keyboard_plus-minus btn plus-minus">+/-</div>
+                    <div class="item btn seven">7</div>
+                    <div class="item btn eigth">8</div>
+                    <div class="item btn nine">9</div>
+                    <div class="item btn four">4</div>
+                    <div class="item btn five">5</div>
+                    <div class="item btn six">6</div>
+                    <div class="item btn one">1</div>
+                    <div class="item btn two">2</div>
+                    <div class="item btn three">3</div>
+                    <div class="item btn zero">0</div>
+                    <div class="item btn dot">.</div>
+                    <div class="item btn plus-minus">+/-</div>
                 </div>
             </div>
             <div class="btn__memory">
@@ -58,6 +61,6 @@
             </div>
         </div>
     </div>
-    <script src="./src/script.js"></script>
+    <script defer src="./src/script.js"></script>
 </body>
 </html>
