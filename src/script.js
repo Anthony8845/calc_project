@@ -1,9 +1,14 @@
 let out = document.querySelector('.display-field')
-let num = document.querySelectorAll('.item')
-let c = document.querySelector('.c')
-let ac = document.querySelector('.ac')
-let backSpace = document.querySelector('.backSpace')
-
+const num = document.querySelectorAll('.item')
+const c = document.querySelector('.c')
+const ac = document.querySelector('.ac')
+const backSpace = document.querySelector('.backSpace')
+const ms = document.querySelector('.ms')
+const mr = document.querySelector('.mr')
+const mc = document.querySelector('.mc')
+const mp = document.querySelector('.mp')
+const mm = document.querySelector('.mm')
+const rvt = document.querySelector('.rvt')
 
 
 // calculation
@@ -12,7 +17,10 @@ function insert(key) {
     
     if(key.textContent == '=' || key.textContent == '+/-') {
         if(key.textContent == '=') {
-            return out.value = eval(out.value)
+            returnValue()
+            let b = eval(out.value)
+            
+            return out.value = b.toFixed(8).replace(/0*$/, '') 
         }
         if(key.textContent == '+/-'){
             return out.value = out.value * -1
@@ -20,7 +28,6 @@ function insert(key) {
        
     }else{
         out.value = out.value + key.textContent;
-        console.log(out.value)
         return out
     }
 
@@ -38,17 +45,75 @@ for(const key of num) {
 // clear
 
 function clear () {
-    return out.value = ''
+    out.value = ''
+    rvt.classList.add('rvt')
+    return
 }
 
 function back () {
-    return out.value = out.value.substring(0, out.value.length - 1)
+    out.value = out.value.substring(0, out.value.length - 1)
+    if(out.value == '') {
+        rvt.classList.add('rvt')
+    }
+    
+    return 
 }
 
 
+function allClear () {
+    clear()
+    clearMemory()
+    
+}
+
 c.addEventListener('click', () => clear())
 backSpace.addEventListener('click', () => back())
+ac.addEventListener('click', () => allClear())
 
 
 
 // memory
+let memory
+
+function save () {
+    memory = out.value
+    mr.style.color = 'red';
+}
+
+function read () {
+   out.value = memory.toFixed(8).replace(/0*$/, '')
+}
+
+function clearMemory () {
+    memory = ''
+    mr.style.color = ''
+}
+
+function plus () {
+    if (memory != '') {
+        return memory = +memory + +out.value
+    }
+}
+
+function minus () {
+    if (memory != '') {
+        return memory = memory - out.value
+    }
+}
+
+ms.addEventListener('click', () => save())
+mr.addEventListener('click', () => read())
+mc.addEventListener('click', () => clearMemory())
+mp.addEventListener('click', () => plus())
+mm.addEventListener('click', () => minus())
+
+// Rvt
+
+let lastValue 
+
+function returnValue () {
+    lastValue = out.value
+    rvt.classList.remove('rvt')
+}
+
+rvt.addEventListener('click', () => out.value = lastValue)
