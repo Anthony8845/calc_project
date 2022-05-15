@@ -20,15 +20,19 @@ function insert(key) {
             returnValue()
             let b = eval(out.value)
             
-            return out.value = b.toFixed(8).replace(/0*$/, '') 
+            return out.value = b.toFixed(8).replace(/0*$/, '') - 1 + 1
         }
         if(key.textContent == '+/-'){
             return out.value = out.value * -1
         }
        
     }else{
-        out.value = out.value + key.textContent;
-        return out
+        if(out.value.length < 20) {
+            out.value = out.value + key.textContent;
+           
+            
+            return out
+        }
     }
 
   
@@ -81,7 +85,7 @@ function save () {
 }
 
 function read () {
-   out.value = memory.toFixed(8).replace(/0*$/, '')
+   out.value = memory.toFixed(8).replace(/0*$/, '')-1+1
 }
 
 function clearMemory () {
